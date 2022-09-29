@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const HomePage: NextPage = () => {
   return <Fragment>
-      <Link href="/projects/add">เพิ่ม Project</Link>
+
     </Fragment>
 }
 

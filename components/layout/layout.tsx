@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import {Fragment, PropsWithChildren} from 'react'
 import Container from '@mui/material/Container'
+import {MenuItem, Stack} from '@mui/material'
+import Link from 'next/link'
 
 export default function Layout({ children }: PropsWithChildren<any>) {
   return (
@@ -24,10 +26,22 @@ export default function Layout({ children }: PropsWithChildren<any>) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Menu
-            </Typography>
-            <Button color="inherit">Login</Button>
+            <Box sx={{ flexGrow: 1}}>
+              <Stack direction="row" spacing={2}>
+              <Typography variant="h6" component="div">
+                <Link href="/" color="inherit">Home</Link>
+              </Typography>
+                <Typography variant="h6" component="div">
+                  <Link href="/projects/add" color="inherit">เพิ่มโครงการ</Link>
+                </Typography>
+                {/*<Typography variant="h6" component="div">*/}
+                {/*  <Link href="/projects/summary" color="inherit">โครงการทั้งหมด</Link>*/}
+                {/*</Typography>*/}
+              </Stack>
+
+            </Box>
+
+
           </Toolbar>
         </AppBar>
       </Box>

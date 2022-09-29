@@ -21,10 +21,7 @@ import {AgGridReact} from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 import 'ag-grid-enterprise'
-import {
-  ColDef,
-  ColGroupDef
-} from 'ag-grid-community'
+import {ColDef, ColGroupDef} from 'ag-grid-community'
 import {TabPanel, a11yProps} from '@components/ui/tabs/tabPanel'
 
 const AddProjectPage: NextPage = () => {
@@ -280,40 +277,13 @@ const AddProjectPage: NextPage = () => {
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={tabIndex} onChange={(e, newValue) => setTabIndex(newValue)} aria-label="basic tabs example">
-            <Tab label="รายละเอียดค่าใช้จ่าย" {...a11yProps(0)} />
-            <Tab label="รายละเอียดโครงการ" {...a11yProps(1)} />
+            <Tab label="รายละเอียดโครงการ" {...a11yProps(0)} />
+            <Tab label="รายละเอียดค่าใช้จ่าย" {...a11yProps(1)} />
           </Tabs>
         </Box>
 
         {/* Tab รายละเอียดค่าใช้จ่าย */}
         <TabPanel value={tabIndex} index={0}>
-
-          <Stack spacing={2}>
-
-            {/*AG Grid สำหรับกรอกข้อมูล*/}
-            <div className="ag-theme-alpine" style={{height: 500}}>
-              <AgGridReact
-                rowData={rowData}
-                columnDefs={columnDefs}
-                defaultColDef={defaultColDef}
-                processDataFromClipboard={processDataFromClipboard}
-                suppressAggFuncInHeader={true}
-              />
-            </div>
-
-            {/* Textarea ข้อมูลเพิ่มเติม */}
-            <TextareaAutosize
-              aria-label="ข้อมูลเพิ่มเติม"
-              minRows={3}
-              placeholder="ข้อมูลเพิ่มเติม"
-            />
-
-          </Stack>
-
-        </TabPanel>
-
-        {/* Tab รายละเอียดโครงการ */}
-        <TabPanel value={tabIndex} index={1}>
 
           <Stack spacing={2}>
 
@@ -555,6 +525,33 @@ const AddProjectPage: NextPage = () => {
               </FormGroup>
             </FormControl>
 
+
+          </Stack>
+
+        </TabPanel>
+
+        {/* Tab รายละเอียดโครงการ */}
+        <TabPanel value={tabIndex} index={1}>
+
+          <Stack spacing={2}>
+
+            {/*AG Grid สำหรับกรอกข้อมูล*/}
+            <div className="ag-theme-alpine" style={{height: 500}}>
+              <AgGridReact
+                rowData={rowData}
+                columnDefs={columnDefs}
+                defaultColDef={defaultColDef}
+                processDataFromClipboard={processDataFromClipboard}
+                suppressAggFuncInHeader={true}
+              />
+            </div>
+
+            {/* Textarea ข้อมูลเพิ่มเติม */}
+            <TextareaAutosize
+              aria-label="ข้อมูลเพิ่มเติม"
+              minRows={3}
+              placeholder="ข้อมูลเพิ่มเติม"
+            />
 
           </Stack>
 
